@@ -13,6 +13,7 @@ Here are the following valid operators :
 You'll have to return a string that contains dots, as many the equation returns. If the result is 0, return the empty string. When it comes to subtraction, the first number will always be greater than or equal to the second number.
 */
 
+// MY
 function dotCalculator(equation) {
   // separing string to arrays from whitespaces;
   const arr = equation.split(" ");
@@ -60,19 +61,19 @@ function dotCalculator(equation) {
 }
 
 // OPTIMIZED
-const dotCalculatorOpt = (equation) => {
+function optimized(equation) {
   const operations = {
     "+": (a, b) => a + b,
     "-": (a, b) => a - b,
     "*": (a, b) => a * b,
-    "//": (a, b) => Math.floor(a / b)
+    "//": (a, b) => Math.floor(a / b),
   };
   const [left, operator, right] = equation.split(" ");
   return ".".repeat(operations[operator](left.length, right.length));
-};
+}
 
 // ULTRA OPTIMIZED
-function dotCalculatorSuperOpt(equation) {
+function ultra(equation) {
   let [a, op, b] = equation.split(" ");
 
   if (op === "//") {
@@ -83,12 +84,15 @@ function dotCalculatorSuperOpt(equation) {
 }
 
 // TESTS
-dotCalculator("..... + ...............");
-dotCalculator("..... - ...");
-dotCalculator("..... - .");
-dotCalculator("..... * ...");
-dotCalculator("..... * ..");
-dotCalculator("..... // ..");
-dotCalculator("..... // .");
-dotCalculator(". // ..");
-dotCalculator(". - .");
+console.log(
+  "'..... + ...............':",
+  dotCalculator("..... + ...............")
+);
+console.log("'..... - ...':", dotCalculator("..... - ..."));
+console.log("'..... - .':", dotCalculator("..... - ."));
+console.log("'..... * ...':", dotCalculator("..... * ..."));
+console.log("'..... * ..':", dotCalculator("..... * .."));
+console.log("'..... // ..':", dotCalculator("..... // .."));
+console.log("'..... // .':", dotCalculator("..... // ."));
+console.log("'. // ..':", dotCalculator(". // .."));
+console.log("'. - .':", dotCalculator(". - ."));
